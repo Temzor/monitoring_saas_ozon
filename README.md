@@ -1,34 +1,33 @@
-# monitoring_saas_ozon
 
-┌─────────────────┐     ┌──────────────────┐     ┌─────────────────┐
-│   Frontend      │────▶│   Python API     │────▶│   PostgreSQL    │
-│   (HTML/JS)     │◀────│   (FastAPI)      │◀────│                 │
-└─────────────────┘     └──────────────────┘     └─────────────────┘
-                                │
-                                ▼
-┌─────────────────┐     ┌──────────────────┐     ┌─────────────────┐
-│   Go Checker    │◀────│   Redis Queue    │────▶│   Email Alerts │
-│   (Goroutines)  │────▶│                  │     │   (Celery)      │
-└─────────────────┘     └──────────────────┘     └─────────────────┘
+## ✨ Функциональность
 
+- ✅ Регистрация и аутентификация пользователей (JWT)
+- ✅ Добавление URL для мониторинга
+- ✅ Автоматическая проверка доступности сайтов
+- ✅ История проверок с метриками
+- ✅ Email уведомления при падении сайта
+- ✅ Статус UP/DOWN для каждого сайта
 
-Structur:
-uptime-monitor/
-├── api/                    # Python FastAPI
-│   ├── main.py
-│   ├── models.py
-│   ├── auth.py
-│   └── requirements.txt
-├── checker/                # Go checker service
-│   ├── main.go
-│   ├── checker.go
-│   ├── go.mod
-│   └── go.sum
-├── worker/                 # Python Celery worker for emails
-│   ├── tasks.py
-│   └── requirements.txt
-├── frontend/               # Simple HTML/JS
-│   ├── index.html
-│   └── app.js
-├── docker-compose.yml
-└── .env
+## 🛠 Технологии
+
+- **Python/FastAPI** - REST API, аутентификация, работа с БД
+- **Go** - Высокопроизводительный checker сайтов
+- **PostgreSQL** - Основная база данных
+- **Redis** - Очередь задач и брокер сообщений
+- **Celery** - Фоновые задачи (email рассылка)
+- **JWT** - Аутентификация
+- **Docker** - Контейнеризация
+
+## 🚀 Быстрый старт
+
+### Предварительные требования
+- Docker и Docker Compose
+- Go 1.21+ (для локальной разработки)
+- Python 3.11+ (для локальной разработки)
+
+### Установка и запуск
+
+1. **Клонировать репозиторий**
+```bash
+git clone <your-repo-url>
+cd monitoring_saas_ozon
